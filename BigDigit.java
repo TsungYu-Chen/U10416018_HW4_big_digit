@@ -22,6 +22,7 @@ public class BigDigit{
 		}
 		return c;
 	}
+	//減法
 	public static int[] sub(int[] a, int[] b) { 
         int borrow = 0; 
         int[] c = new int[a.length];
@@ -29,8 +30,9 @@ public class BigDigit{
         for(int i = a.length - 1; i >= 0; i--) { 
             c[i] = a[i] - b[i] - borrow; 
             if(c[i] >= 0) 
-                borrow = 0; 
-            else { // 借位 
+                borrow = 0;
+			//如果 a[i] < b[i] 借位
+            else { 
                 c[i] = c[i] + 10000; 
                 borrow = 1; 
             } 
@@ -44,7 +46,7 @@ public class BigDigit{
 		
 		int[] a = new int[6];
 		int[] b = new int[6];
-		System.out.println("請輸入1, 2分別代表 + - : ");
+		System.out.println("請輸入1 or 2\n分別代表 + - : ");
 		int determine = input.nextInt();
 		
 		if(determine == 1){
@@ -64,7 +66,7 @@ public class BigDigit{
 			int[] c = BigDigit.add(a, b);
 			System.out.print("a + b =");
 			for(int i = 0; i < c.length; i++) {
-				//判斷 c 的位數, 補0, 並輸出 c
+				//判斷 c 的位數並輸出 c
 				if(c[i] < 1000 && c[i] > 100){
 					System.out.print("0" + c[i]);
 				}
@@ -100,7 +102,7 @@ public class BigDigit{
 			int[] c = BigDigit.sub(a, b);
 			System.out.print("a - b =");
 			for(int i = 0; i < c.length; i++) {
-				//判斷 c 的位數, 補0, 並輸出 c
+				//判斷 c 的位數並輸出 c
 				if(c[i] < 1000 && c[i] > 100){
 					System.out.print("0" + c[i]);
 				}
