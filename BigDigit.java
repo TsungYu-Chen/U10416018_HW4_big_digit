@@ -23,10 +23,10 @@ public class BigDigit{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
 		
-		int[] a = new int[5];
-		int[] b = new int[5];
+		int[] a = new int[6];
+		int[] b = new int[6];
 		
-		System.out.println("\n請輸入兩個陣列 a, b 如: 1111 2222 3333 4444 5555, 使其相加\n");
+		System.out.println("\n請輸入兩個陣列 a, b 如: 1111 2222 3333 4444 5555 6666, 使其相加\n");
 		//讓使用者輸入兩個陣列, 使其相加
 		System.out.print("enter a :");
 		for(int i = 0; i < a.length; i ++){
@@ -42,8 +42,23 @@ public class BigDigit{
 		int[] c = BigDigit.add(a, b);
 		System.out.print("a + b =");
 		for(int i = 0; i < c.length; i++) {
-            System.out.print(c[i]);
-        }
+			//判斷 c 的位數, 補0, 並輸出 c
+            		if(c[i] < 1000 && c[i] > 100){
+					System.out.print("0" + c[i]);
+			}
+			else if(c[i] < 100 && c[i] > 10){
+				System.out.print("00" + c[i]);
+			}
+			else if(c[i] < 10 && c[i] > 1){
+				System.out.print("000" + c[i]);
+			}
+			else if(c[i] < 1){
+				System.out.print("0000" + c[i]);
+			}
+			else{
+				System.out.print(c[i]);
+			}
+        	}
 		System.out.println();
 	}
 }
