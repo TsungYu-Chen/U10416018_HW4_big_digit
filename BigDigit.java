@@ -24,18 +24,18 @@ public class BigDigit{
 	}
 	//減法
 	public static int[] sub(int[] a, int[] b) { 
-        int borrow = 0; 
-        int[] c = new int[a.length];
+        	int borrow = 0; 
+        	int[] c = new int[a.length];
         
-        for(int i = a.length - 1; i >= 0; i--) { 
-            c[i] = a[i] - b[i] - borrow; 
-            if(c[i] >= 0) 
-                borrow = 0;
-			//如果 a[i] < b[i] 借位
-            else { 
-                c[i] = c[i] + 10000; 
-                borrow = 1; 
-            } 
+	 for(int i = a.length - 1; i >= 0; i--) { 
+        	c[i] = a[i] - b[i] - borrow; 
+            	if(c[i] >= 0) 
+                	borrow = 0;
+		//如果 a[i] < b[i] 借位
+            	else { 
+                	c[i] = c[i] + 10000; 
+                	borrow = 1; 
+            	} 
         }
         
         return c;
@@ -46,9 +46,10 @@ public class BigDigit{
 		
 		int[] a = new int[6];
 		int[] b = new int[6];
+		
 		System.out.println("請輸入1 or 2\n分別代表 + - : ");
 		int determine = input.nextInt();
-		
+		//使用者輸入1, 加法
 		if(determine == 1){
 			System.out.println("\n請輸入兩個陣列 a, b 如: 1111 2222 3333 4444 5555 6666, 使其相加\n");
 			//讓使用者輸入兩個陣列, 使其相加
@@ -84,7 +85,9 @@ public class BigDigit{
 				}
 			}
 			System.out.println();
+		
 		}
+		//使用者輸入2, 減法
 		else if (determine == 2){
 			System.out.println("\n請輸入兩個陣列 a, b 如: 1111 2222 3333 4444 5555 6666, 使其相減\n");
 			//讓使用者輸入兩個陣列, 使其相減
